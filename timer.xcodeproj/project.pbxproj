@@ -16,6 +16,8 @@
 		A880D60F210872EC0047A493 /* PersonnelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D60E210872EC0047A493 /* PersonnelVC.swift */; };
 		A880D611210873050047A493 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D610210873050047A493 /* HistoryVC.swift */; };
 		A880D6132109DE470047A493 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D6122109DE470047A493 /* Task.swift */; };
+		A880D6152109E63A0047A493 /* CountDownTImer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D6142109E63A0047A493 /* CountDownTImer.swift */; };
+		A880D6172109E68E0047A493 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D6162109E68E0047A493 /* TimerView.swift */; };
 		DE5A3A0C3F1BF0B660CE36D0 /* Pods_timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53079E2FC31CE7F08EA20424 /* Pods_timer.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		A880D60E210872EC0047A493 /* PersonnelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelVC.swift; sourceTree = "<group>"; };
 		A880D610210873050047A493 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		A880D6122109DE470047A493 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		A880D6142109E63A0047A493 /* CountDownTImer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTImer.swift; sourceTree = "<group>"; };
+		A880D6162109E68E0047A493 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 			children = (
 				A880D5EE21081CE40047A493 /* AppDelegate.swift */,
 				A880D5F021081CE40047A493 /* TimerVC.swift */,
+				A880D6162109E68E0047A493 /* TimerView.swift */,
+				A880D6142109E63A0047A493 /* CountDownTImer.swift */,
 				A880D60E210872EC0047A493 /* PersonnelVC.swift */,
 				A880D610210873050047A493 /* HistoryVC.swift */,
 				A880D6122109DE470047A493 /* Task.swift */,
@@ -296,7 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A880D6172109E68E0047A493 /* TimerView.swift in Sources */,
 				A880D5F121081CE40047A493 /* TimerVC.swift in Sources */,
+				A880D6152109E63A0047A493 /* CountDownTImer.swift in Sources */,
 				A880D611210873050047A493 /* HistoryVC.swift in Sources */,
 				A880D6132109DE470047A493 /* Task.swift in Sources */,
 				A880D5EF21081CE40047A493 /* AppDelegate.swift in Sources */,
