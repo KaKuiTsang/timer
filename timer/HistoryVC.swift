@@ -7,18 +7,19 @@
 //
 
 import UIKit
-
-struct Task {
-    let name: String
-    let timeSpent: String
-}
+import RealmSwift
 
 final class HistoryVC: UITableViewController {
 
-    var tasks = [ Task(name: "11111111111111111111111111111111111111111111111111111111111111111111111111111111", timeSpent: "01 : 00"), Task(name: "2", timeSpent: "01 : 00"), Task(name: "3", timeSpent: "01 : 00") ]
+    private var tasks = [Task]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let realm = try! Realm()
+        
+        tasks = Array(realm.objects(Task.self))
+        
         title = "Tasks History"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(dismissVC))
         

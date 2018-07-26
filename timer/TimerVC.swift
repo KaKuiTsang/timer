@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class TimerVC: UIViewController {
     
@@ -19,6 +20,7 @@ final class TimerVC: UIViewController {
     private let startButton = UIButton()
     private let stopButton = UIButton()
     private let doneButton = UIButton()
+    private var taskName = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,10 +124,11 @@ final class TimerVC: UIViewController {
     }
     
     @objc private func taskDone() {
+        countDownTimer.stopTimer()
+        saveTask()
         countDownTimer.resetTimer()
         timerView.updateTimerView()
         taskNameTextField.text = nil
-        // edit history object and save it
     }
     
     @objc private func routeToPersonnel() {
@@ -139,12 +142,23 @@ final class TimerVC: UIViewController {
         let vc = UINavigationController(rootViewController: historyVC)
         present(vc, animated: true, completion: nil)
     }
+    
+    private func saveTask() {
+        let task = Task()
+        task.name = taskName
+        task.timeSpent = countDownTimer.getCountedTimeString()
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(task)
+        }
+    }
 
 }
 
 extension TimerVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        taskName = textField.text ?? ""
         textField.resignFirstResponder()
         return true
     }
@@ -248,6 +262,8 @@ final class CountDownTimer {
     
     private var targetTime = 60.0
     
+    private var countedTime = 0.0
+    
     private(set) var isTimerStarted = false
     
     private var timer: Timer?
@@ -266,10 +282,18 @@ final class CountDownTimer {
         }
     }
     
-    func getTargetTimeString() -> String {
-        let minutes = Int(targetTime) / 60
-        let seconds = Int(targetTime) % 60
+    private func getTimeString(time: Double) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
         return String(format: "%02i : %02i", minutes, seconds)
+    }
+    
+    func getTargetTimeString() -> String {
+        return getTimeString(time: targetTime)
+    }
+    
+    func getCountedTimeString() -> String {
+        return getTimeString(time: countedTime)
     }
     
     func startTimer() {
@@ -288,6 +312,7 @@ final class CountDownTimer {
         isTimerStarted = false
         timer?.invalidate()
         targetTime = 60.0
+        countedTime = 0.0
     }
     
     @objc private func countDown() {
@@ -297,6 +322,7 @@ final class CountDownTimer {
         }
         
         targetTime -= 0.01
+        countedTime += 0.01
         delegate?.updateTimerView()
     }
 
