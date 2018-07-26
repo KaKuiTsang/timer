@@ -102,15 +102,22 @@ final class TimerVC: UIViewController {
     private func setupActions() {
         startButton.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
         stopButton.addTarget(self, action: #selector(stopTimer), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(taskDone), for: .touchUpInside)
     }
     
     @objc private func startTimer() {
-        print("start timer")
         countDownTimer.startTimer()
     }
     
     @objc private func stopTimer() {
         countDownTimer.stopTimer()
+    }
+    
+    @objc private func taskDone() {
+        countDownTimer.resetTimer()
+        timerView.updateTimerView()
+        taskNameTextField.text = nil
+        // edit history object and save it
     }
 }
 
@@ -123,7 +130,7 @@ extension TimerVC: UITextFieldDelegate {
     
 }
 
-final class TimerView: UIView {
+final class TimerView: UIView, TimerDelegate {
     
     private var countDownTimer: CountDownTimer!
     
@@ -138,6 +145,7 @@ final class TimerView: UIView {
     init(countDownTimer: CountDownTimer) {
         super.init(frame: CGRect.zero)
         self.countDownTimer = countDownTimer
+        self.countDownTimer.delegate = self
         setupViews()
         setupActions()
     }
@@ -195,58 +203,86 @@ final class TimerView: UIView {
     
     @objc private func increaseTime() {
         countDownTimer.increaseTime()
-        timeLabel.text = countDownTimer.getTargetTimeString()
+        updateTimerView()
     }
     
     @objc private func decreaseTime() {
         countDownTimer.decreaseTime()
+        updateTimerView()
+    }
+        
+    func updateTimerView() {
         timeLabel.text = countDownTimer.getTargetTimeString()
     }
 }
 
 
 final class CountDownTimer {
+
+    var delegate: TimerDelegate?
     
-    private let maxTime = 3600
+    private let maxTime = 3600.0
     
-    private let minTime = 60
+    private let minTime = 60.0
     
-    private var targetTime = 60
+    private var targetTime = 60.0
     
-    private var countedTime = 0
+    private(set) var isTimerStarted = false
     
-    private var timer: Timer!
+    private var timer: Timer?
     
     func increaseTime() {
+        guard !isTimerStarted else { return }
         if targetTime < maxTime {
             targetTime += 60
         }
     }
     
     func decreaseTime() {
+        guard !isTimerStarted else { return }
         if targetTime > minTime {
             targetTime -= 60
         }
     }
     
     func getTargetTimeString() -> String {
-        let minutes = targetTime / 60
-        return String(format: "%02i:%02i:%02i", minutes, 0, 0)
+        let minutes = Int(targetTime) / 60
+        let seconds = Int(targetTime) % 60
+        return String(format: "%02i : %02i", minutes, seconds)
     }
     
     func startTimer() {
-        print("create a timer")
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+        guard !isTimerStarted else { return }
+        isTimerStarted = true
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
     }
     
     func stopTimer() {
-        timer.invalidate()
+        guard isTimerStarted else { return }
+        isTimerStarted = false
+        timer?.invalidate()
+    }
+    
+    func resetTimer() {
+        isTimerStarted = false
+        timer?.invalidate()
+        targetTime = 60.0
     }
     
     @objc private func countDown() {
-        print("counting")
+        guard targetTime > 0 else {
+            timer?.invalidate()
+            return
+        }
+        
+        targetTime -= 0.01
+        delegate?.updateTimerView()
     }
 
+}
+
+protocol TimerDelegate {
+    func updateTimerView()
 }
 
 
