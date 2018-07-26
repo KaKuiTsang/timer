@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A880D5EF21081CE40047A493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D5EE21081CE40047A493 /* AppDelegate.swift */; };
-		A880D5F121081CE40047A493 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D5F021081CE40047A493 /* ViewController.swift */; };
-		A880D5F421081CE40047A493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A880D5F221081CE40047A493 /* Main.storyboard */; };
+		A880D5F121081CE40047A493 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D5F021081CE40047A493 /* TimerVC.swift */; };
 		A880D5F621081CE40047A493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A880D5F521081CE40047A493 /* Assets.xcassets */; };
 		A880D5F921081CE40047A493 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A880D5F721081CE40047A493 /* LaunchScreen.storyboard */; };
 		A880D60421081CE50047A493 /* timerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D60321081CE50047A493 /* timerTests.swift */; };
+		A880D60F210872EC0047A493 /* PersonnelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D60E210872EC0047A493 /* PersonnelVC.swift */; };
+		A880D611210873050047A493 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880D610210873050047A493 /* HistoryVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +29,15 @@
 /* Begin PBXFileReference section */
 		A880D5EB21081CE40047A493 /* timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A880D5EE21081CE40047A493 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A880D5F021081CE40047A493 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A880D5F321081CE40047A493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A880D5F021081CE40047A493 /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
 		A880D5F521081CE40047A493 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A880D5F821081CE40047A493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A880D5FA21081CE40047A493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A880D5FF21081CE40047A493 /* timerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A880D60321081CE50047A493 /* timerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerTests.swift; sourceTree = "<group>"; };
 		A880D60521081CE50047A493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A880D60E210872EC0047A493 /* PersonnelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelVC.swift; sourceTree = "<group>"; };
+		A880D610210873050047A493 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				A880D5EE21081CE40047A493 /* AppDelegate.swift */,
-				A880D5F021081CE40047A493 /* ViewController.swift */,
-				A880D5F221081CE40047A493 /* Main.storyboard */,
+				A880D5F021081CE40047A493 /* TimerVC.swift */,
+				A880D60E210872EC0047A493 /* PersonnelVC.swift */,
+				A880D610210873050047A493 /* HistoryVC.swift */,
 				A880D5F521081CE40047A493 /* Assets.xcassets */,
 				A880D5F721081CE40047A493 /* LaunchScreen.storyboard */,
 				A880D5FA21081CE40047A493 /* Info.plist */,
@@ -179,7 +182,6 @@
 			files = (
 				A880D5F921081CE40047A493 /* LaunchScreen.storyboard in Resources */,
 				A880D5F621081CE40047A493 /* Assets.xcassets in Resources */,
-				A880D5F421081CE40047A493 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +199,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A880D5F121081CE40047A493 /* ViewController.swift in Sources */,
+				A880D5F121081CE40047A493 /* TimerVC.swift in Sources */,
+				A880D611210873050047A493 /* HistoryVC.swift in Sources */,
 				A880D5EF21081CE40047A493 /* AppDelegate.swift in Sources */,
+				A880D60F210872EC0047A493 /* PersonnelVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +225,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A880D5F221081CE40047A493 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A880D5F321081CE40047A493 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A880D5F721081CE40047A493 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -361,6 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4DTA8J4K7;
 				INFOPLIST_FILE = timer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,7 +365,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kakui.timer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -379,6 +376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4DTA8J4K7;
 				INFOPLIST_FILE = timer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,7 +384,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kakui.timer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
