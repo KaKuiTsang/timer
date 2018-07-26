@@ -103,6 +103,14 @@ final class TimerVC: UIViewController {
         startButton.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
         stopButton.addTarget(self, action: #selector(stopTimer), for: .touchUpInside)
         doneButton.addTarget(self, action: #selector(taskDone), for: .touchUpInside)
+        
+        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(routeToPersonnel))
+        infoButton.isUserInteractionEnabled = true
+        infoButton.addGestureRecognizer(tapGesture1)
+        
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(routeToHistory))
+        historyButton.isUserInteractionEnabled = true
+        historyButton.addGestureRecognizer(tapGesture2)
     }
     
     @objc private func startTimer() {
@@ -119,6 +127,19 @@ final class TimerVC: UIViewController {
         taskNameTextField.text = nil
         // edit history object and save it
     }
+    
+    @objc private func routeToPersonnel() {
+        let personnelVC = PersonnelVC()
+        let vc = UINavigationController(rootViewController: personnelVC)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc private func routeToHistory() {
+        let historyVC = HistoryVC()
+        let vc = UINavigationController(rootViewController: historyVC)
+        present(vc, animated: true, completion: nil)
+    }
+
 }
 
 extension TimerVC: UITextFieldDelegate {
