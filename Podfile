@@ -5,7 +5,8 @@ target 'timer' do
  
   use_frameworks!
  
- pod 'RealmSwift'
+  pod 'Realm'
+  pod 'RealmSwift'
 
   target 'timerTests' do
     inherit! :search_paths
