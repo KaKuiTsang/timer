@@ -1,7 +1,7 @@
 # A Count Down Timer
 
 ### Build Issue
-    if your ecountered "impl/primitive_list_notifier.hpp' file not found" error during building process
+    if you have ecountered "impl/primitive_list_notifier.hpp' file not found" error during building process
     please follow below steps in terminal 
   
     cd [project location]/timer
