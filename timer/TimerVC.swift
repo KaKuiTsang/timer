@@ -145,6 +145,13 @@ final class TimerVC: UIViewController {
     }
     
     private func saveTask() {
+        guard !taskName.isEmpty else {
+            let alert = UIAlertController(title: "Warning", message: "Please enter a task name before saving", preferredStyle: .alert)
+            present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            return
+        }
+        
         let task = Task()
         task.name = taskName
         task.timeSpent = countDownTimer.getCountedTimeString()
