@@ -10,7 +10,8 @@ import Foundation
 
 final class CountDownTimer {
     
-    var delegate: TimerDelegate?
+    // use weak reference to avoid retain cycle 
+    weak var delegate: TimerDelegate?
     
     private let maxTime = 3600.0
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TimerDelegate {
+protocol TimerDelegate: class {
     func updateTimerView()
     func updateProgress(progress: CGFloat)
 }
