@@ -17,9 +17,9 @@ final class CountDownTimer {
     
     private let minTime = 60.0
     
-    private var targetTime = 60.0
+    private(set) var targetTime = 60.0
     
-    private var countedTime = 0.0
+    private(set) var countedTime = 0.0
     
     private(set) var isTimerStarted = false
     
